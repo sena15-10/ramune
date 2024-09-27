@@ -1,0 +1,50 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+<div id="container"></div>
+<header class="page-header" role="banner">
+    <h1 class="header_title">ラムネ</h1>
+</header>
+<main>
+    <div class="ques-list">
+        <% @questions.each do |question| %>            
+            <div class="ques-item"> 
+                <h2 class="title-txt"><%= question.title %></h2>
+                <p class="ques-txt"><%= question.content %></p>
+                <div class="hidden-content">
+                    <h3 class="ans-title">:回答</h3>
+                    <p class="ans-txt"><%= question.ans_content %></p> 
+                </div>     
+                <div class="button-wrapper">  
+                    <button class="more-button"><p class="more-buttontxt">VIEW MORE</p></button>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <%= paginate @questions %>
+    <% if user_signed_in? %>
+        <%= link_to '前のページ',teacher_index_path %>
+    <% else %>
+        <%= link_to '前のページ',root_path %>
+    <% end %>
+</main>
+
+<script>
+$(function() {
+    $('.more-button').on('click', function() {
+        console.log("クリックされました");
+        var $button = $(this);
+        var $hiddenContent = $button.closest('.ques-item').find('.hidden-content');
+        $hiddenContent.toggleClass('open');  
+
+       
+        if ($hiddenContent.hasClass('open')) {
+            $button.find('.more-buttontxt').text('close');
+            console.log("クリックされましたa")
+        } else {
+            $button.find('.more-buttontxt').text('VIEW MORE');
+        }
+    });
+});
+
+</script>

@@ -1,0 +1,28 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>    
+<body class="teacher-page">
+    <main class="selct">
+        <h1 class="h-txt">どのような要件ですか？</h1>
+        <h2 class="service">Service</h2>
+        <div class="wrapper">
+        <%= link_to answer_index_path class:"aa" do %>
+            <div class="ans-form">
+                <h3>01</h3>
+                <p>回答</p>
+            </div>
+          <% end %>
+        <%= link_to quesview_index_path do%>
+            <div class="ans-view">
+                <h3>02</h3>
+                <p>回答閲覧</p>
+            </div>
+        <% end %>
+        <%= link_to do %>
+            <div class="gb-view">
+                <h3>03</h3>
+                <p>ゴミ箱閲覧</p>
+            </div>
+        <% end %>
+        </div>
+    </main>
+</body>

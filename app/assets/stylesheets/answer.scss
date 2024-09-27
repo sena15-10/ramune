@@ -1,0 +1,86 @@
+body {
+  height: 100%;
+}
+
+.ans-btn {
+  display: block;
+  text-align: center;
+  margin: 10px auto;
+  font-size:1.5rem;
+  border-radius: 5px;
+  border:none;
+  background-color:#009bcc94;
+  color: #fff;
+  padding: 5px;
+}
+
+.title-txt::before,
+.ans-title::before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 1.5em;
+    margin-right:10px;
+}
+.ans_sendEria {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+#ans_body {
+  margin: 15px auto;
+  font-size: 1.2rem;
+  font-weight: 300;
+  height: 300px;
+  width: 100%;
+  max-width: 600px; 
+}
+#ans-sendbtn {
+
+  border:none;
+  border-radius: 5px;
+  font-weight: 500;
+  padding: 10px;
+  font-size: 1.2em;
+  background-color: #a5a4a4;
+  color:  rgb(255, 249, 249);
+  box-shadow: 1px 1px 1px 0px rgb(146, 145, 145);
+}
+.ans-pos {
+  margin-right: 20px;
+  display: flex;
+  justify-content: end;
+}
+#ans-sendbtn:hover {
+  opacity: 0.7;
+}
+
+#delete-btn {
+  border: none;
+}
+
+.trash-container {
+  position: relative; /* 親要素を基準に配置 */
+  display: inline-block; /* 要素が並ぶようにする */
+}
+
+.trash {
+  position: relative; /* 基本位置 */
+  z-index: 1; /* 背面に配置 */
+}
+
+.trash-open {
+  position: absolute; /* 親要素の上に配置 */
+  top: 0; /* 必要に応じて調整 */
+  left: 0; /* 必要に応じて調整 */
+  display: none; /* デフォルトでは非表示 */
+  z-index: 2; /* 前面に配置 */
+}
+
+.trash-container:hover .trash-open {
+  display: block; /* マウスオーバー時に表示 */
+}
+
+.trash-container:hover .trash {
+  opacity: 0; /* マウスオーバー時に透明に */
+}

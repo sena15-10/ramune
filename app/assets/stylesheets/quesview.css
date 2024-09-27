@@ -1,0 +1,112 @@
+body {  
+    background-image: url("bg-img.png");
+    background-repeat: no-repeat; /* 繰り返さない */
+    background-position: center; /* 中央に配置 */
+    background-size: 100% 100%; /* 縦に最大限に表示 */
+    line-height: 1.6;  
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", "Arial", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+}
+link {
+    text-decoration: none;
+}
+.ques-list {
+    max-width: 980px;
+    margin: 0 auto; /* 中央寄せ */
+    padding: 20px; /* 内側の余白 */
+}
+
+.ques-item {
+    border-radius: 8px; 
+    margin:60px auto;
+    padding: 15px;
+    height: auto;
+    max-width: 980px;
+    box-shadow: 4px 8px 8px rgb(229, 229, 231);
+    background-color: #f3f3f3; 
+}
+
+
+.title-txt,
+.ques-txt,
+.ans-title,
+.ans-txt {
+    margin:25px 0;
+}
+.ques-txt {
+    box-shadow: inset 2px 0 0 0 rgb(143, 137, 137);
+    padding: 20px 10px;
+    font-size: 1.2rem;
+    border-bottom:3px solid rgb(143, 137, 137);
+}
+.title-txt,
+.ans-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    border-bottom:3px solid rgb(143, 137, 137);
+    display: flex;
+    align-items: center; 
+}
+
+
+.title-txt::before {
+    content: url("bubble_A.png");
+    display: block;
+    margin-right:20px;
+}
+
+
+
+.hidden-content {
+    display: none;
+}
+
+.hidden-content.open {
+    display: block; 
+}
+
+.button-wrapper {
+    text-align: center;
+}
+.more-button {
+    border-radius: 5px;
+    border:none;
+    background-color:#009bcc94;
+    padding: 10px;
+}
+
+.more-buttontxt {
+    color:rgb(236, 235, 235);
+}
+
+
+.pagination{
+    margin: 0 auto;
+    padding: 25px;
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    background-color: #f3f3f3;
+}
+
+.pagination li {
+    margin: 0 10px;
+}
+
+.pagination li a {
+    padding: 10px 15px;
+}
+.pagination li:hover {
+    opacity: 0.8;
+}
+
+.pagination>.active>a {     
+    background: #93c9ff;     /*背景の色を変える*/
+    border-radius: 50%;     /*角を丸くする*/
+  }
+  
+  footer {
+      display: none;
+  }

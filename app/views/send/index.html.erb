@@ -1,0 +1,27 @@
+
+
+
+
+<header class="page-header" role="banner">
+    <h1 class="header_title">ラムネ</h1>
+</header>
+
+
+<div class="send-box">
+<h1 class="new-h1">新しい質問を投稿</h1>
+    <%= form_with url: send_create_path, local:true  do |form| %>
+        <div class="send-titleeria">
+            <%= form.label :title,"タイトル", class: "send-title" %>
+            <%= form.text_field 'question[title]', class: "send-txt", required: true %>
+        </div>
+
+        <div class="send-txteria">
+            <%= form.label :content, "内容" %>
+            <%= form.text_area 'question[content]', id: "question_body", required: true %>
+        </div>
+
+        <div class="send-btn">
+            <%= form.submit "質問を投稿" %>
+        </div>
+    <% end %>
+</div>

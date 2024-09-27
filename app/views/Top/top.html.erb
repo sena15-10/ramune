@@ -1,0 +1,73 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<div id="container"></div>
+<header class="page-header" role="banner">
+    <h1 class="header_title">ラムネ</h1>
+</header>
+<main>
+    <div class="main_image">
+        <div class="student-image">
+            <%= image_tag 'stutent.png', class: 'student' %>          
+            <p class="mouse_over_eria"></p>
+            <span class="send"><%= link_to image_tag('send.png', :width => '200'), send_index_path %></span>
+            <span class="view"><%= link_to image_tag('view.png'), quesview_index_path %></span>
+        </div>
+        <%= link_to image_tag('teacher.png', class: 'teacher'), new_user_session_path %>
+    </div>
+</main>
+<footer></footer>
+<script>
+console.log("JQueryを受け入れました");
+$(function() {
+    let coolTime = 500;
+    let animation = 600;
+    let $Button = $('.student-image');
+
+    $($Button)
+        .on('mouseenter', function() {
+            $(this).find('> span').stop(true).animate({
+                opacity: 1,
+                left: '-150px'
+            }, animation, 'easeOutSine');
+
+            $(this).find('.mouse_over_eria').stop(true).animate({
+                left: '-150px'
+            }, animation, 'easeOutSine');
+        });
+
+    $($Button).on('mouseleave', function() {
+        $(this).find('> span').stop(true).animate({
+            opacity: 0,
+            left: '0px'
+        }, animation, 'easeOutSine');
+        $(this).find('.mouse_over_eria').stop(true).animate({
+            left: '-150px'
+        }, animation, 'easeOutSine');
+    });
+
+    function bubbleAnimation() {
+        let $bubble = $('<span class="bubble"></span>');
+        let startX = Math.floor(Math.random() * window.innerWidth); 
+        let footerOffsetTop = $('.main_image').offset().top + $('.main_image').outerHeight();
+        let headerOffsetTop = $('header').offset().top;
+
+        $bubble.css({
+            left: startX,
+            top: 1000
+        });
+
+        $('#container').append($bubble);
+
+        let randomSpeed_y = Math.floor(Math.random() * 200); 
+        let randomSpeed = Math.floor(Math.random() * 4000) + 1000; 
+        $bubble.animate({
+            left: startX, 
+            top: headerOffsetTop
+        }, randomSpeed, 'linear', function() {
+            $(this).remove();
+        });
+    }
+
+    setInterval(bubbleAnimation, 500);
+});
+</script>

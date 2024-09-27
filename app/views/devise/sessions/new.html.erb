@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="card">
+        <h2 class="text-center">ログイン</h2>
+        <div class="card-body">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="box">
+              <%= f.label :メールアドレス, class: "form-label" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+
+              <%= f.label :パスワード, class: "form-label" %>
+              <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+              
+
+              <% if devise_mapping.rememberable? %>
+                <div class="mb-3 form-check">
+                  <%= f.check_box :remember_me, class: "form-check-input" %>
+                  <%= f.label :remember_me, class: "form-check-label" %>
+                </div>
+              <% end %>
+            </div>
+
+            <div class="text-center">
+              <%= f.submit "ログイン", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+        <div class="text-center">
+          <%= render "devise/shared/links" %>
+        </div>
+  </div>
+</div>
+<div class="area" >
+            <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+</div>

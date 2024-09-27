@@ -1,0 +1,29 @@
+<%= form_with(model: @question) do |form| %>
+  <% if asa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this asa from being saved:</h2>
+
+      <ul>
+        <% .errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :題名 %>
+    <%= form.text_field :title %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :内容 %>
+    <%= form.text_field :content %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

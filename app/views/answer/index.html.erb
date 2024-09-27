@@ -1,0 +1,68 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<%= stylesheet_link_tag 'answer', media: 'all', 'data-turbolinks-track': 'reload' %>
+<html>
+  <body>
+  <header class="page-header" role="banner">
+    <h1 class="header_title">ラムネ</h1>
+  </header>
+    <table>
+      <tbody class="ques-list">
+        <% @questions.each do |question| %>
+          <tr>
+          <div class="ques-item">
+            <p class="title-txt"><%= question.title %><p>
+            <p class="ques-txt"><%= question.content %></p>
+            <div class="hidden-content">
+              <%= form_with(url: answer_update_path)  do |f| %>
+                  <div class="ans_sendEria"><%= f.text_area :ans_content, id: "ans_body", required: true, placeholder:"回答を記入してください"%></div>
+                  <div class="ans-pos"><%= f.submit "送信", id:"ans-sendbtn" %></div>
+                  
+              <% end %>
+            </div>
+            <%= button_to  answer_path(question.id), method: :delete, id: "delete-btn", escape: false  do %>
+            <div class="trash-container">
+                <%= image_tag "trash.png", class: "trash" %>
+                <%= image_tag "trash-open.png", class: "trash-open" %>
+            </div>
+            <% end %>
+            <div class="E-ans-btn" id="ans-btn"><button class="ans-btn">回答する</button></div>
+
+          </div>
+          
+          
+          </tr>
+          <% end %>
+          <%= paginate @questions %>
+        </tbody>
+        <%= link_to '前のページ',teacher_index_path %>
+        </table>
+
+  </body>
+</html>
+<script>
+$(function() {
+
+    $('.ans-btn').on('click', function() {
+        console.log("クリックされました");
+        var $button = $(this);
+        var $hiddenContent = $button.closest('.ques-item').find('.hidden-content');
+        $hiddenContent.toggleClass('open');  
+
+       
+        if ($hiddenContent.hasClass('open')) {
+            $button.text('Close');
+            $('#ans_body').focus(); 
+            console.log("クリックされました");
+        } else {
+            $button.text('回答する');
+        }
+    });
+    $('#delete-btn').on('mouseover', function() {
+      $(this).find('.trash-open').toggleClass('over'); 
+  }).on("mouseout", function() {
+      $(this).find('.trash-open').toggleClass('over'); 
+  });
+});
+
+</script>
